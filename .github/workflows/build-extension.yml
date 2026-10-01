@@ -1,7 +1,7 @@
-name: Build Extension Bundle
+name: Build Chrome Extension
 
 on:
-  workflow_dispatch: # Allows you to trigger the build manually with a button
+  workflow_dispatch:
 
 jobs:
   build:
@@ -20,11 +20,11 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Build Script
-        run: npm run build
+      - name: Build Chrome Extension
+        run: npm run build:chrome
 
-      - name: Upload Assembled Extension Artifact
+      - name: Upload Chrome Extension Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bookmark-sidebar-build
+          name: bookmark-sidebar-chrome
           path: dist/
